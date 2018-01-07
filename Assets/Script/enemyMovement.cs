@@ -12,15 +12,19 @@ public class enemyMovement : MonoBehaviour {
 	private float startTime;
 	private float journeyLength;
 
+
 	// Use this for initialization
 	void Start () {
-		if (target) {
+		if (target == null) {
+			target = EnemySpawnmanager.instance.playerObj.gameObject;
 			endMarker = target.transform;
 			startTime = Time.time;
 			journeyLength = Vector3.Distance(this.transform.position, endMarker.position);
 		
 		}
 	}
+
+
 	
 	// Update is called once per frame
 	void FixedUpdate () {
