@@ -67,12 +67,12 @@ public class EnemySpawnmanager : MonoBehaviour {
 					spawnLocationForNewEnemy.y = 2;
 					spawnLocationForNewEnemy.x = Random.Range (-50,50f);
 				} else {
-					Debug.Log ("going for default......");
+					//Debug.Log ("going for default......");
 				}
-				Debug.Log ("position that occupies transform..."+randWall.position);
+				//Debug.Log ("position that occupies transform..."+randWall.position);
 			}
 		}
-		Debug.Log ("return location for enemy ....."+spawnLocationForNewEnemy);
+		//Debug.Log ("return location for enemy ....."+spawnLocationForNewEnemy);
 		return spawnLocationForNewEnemy;
 	}
 }

@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ShootManShoot : MonoBehaviour
 {
-    public GameObject bulletRef;
-    GameObject newBullet;
+    public float bulletSpeed = 10f;
+    public Rigidbody bullet;
 
 
-    void OnMouseDown()
+    void Fire()
     {
-        if(bulletRef)
-        {
-            newBullet = Instantiate(bulletRef);
-        }  
+        Rigidbody bulletClone = (Rigidbody)Instantiate(bullet, transform.position, transform.rotation);
+        bulletClone.velocity = transform.forward * bulletSpeed;
     }
 
+    void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+            Fire();
+    }
 }

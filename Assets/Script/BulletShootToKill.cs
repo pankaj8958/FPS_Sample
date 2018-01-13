@@ -5,20 +5,28 @@ using UnityEngine;
 public class BulletShootToKill : MonoBehaviour {
 
     Transform objTransform;
-    Vector3 currentPos;
-    public float speed = 0.5f;
 
-	// Use this for initialization
-	void Start () {
-        objTransform = this.transform;
-        currentPos = objTransform.position;
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		if(objTransform)
+    /// <summary>
+    /// On hitting any target
+    /// </summary>
+    /// <param name="collision"></param>
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision != null)
         {
-            this.GetComponent<Rigidbody>().velocity = this.transform.forward * 6;
+            if(collision.gameObject.tag.Equals("Enemy"))
+            {
+                Debug.Log("Hit the emeny...");
+                Destroy(collision.gameObject);
+            } else if(collision.gameObject.tag.Equals("Wall"))
+            {
+                Debug.Log("Hit the Wall ....");
+            }
+            Debug.Log("the collider tag...."+collision.gameObject.tag);
+            Destroy(this.gameObject);
         }
-	}
+    }
+
+
+
 }
